@@ -78,6 +78,45 @@ export const constantRoutes = [
   },
 
   {
+    path: '/cmn',
+    component: Layout,
+    redirect: '/cmn/list',
+    name: '数据管理',
+    alwaysShow: true,
+    meta: { title: '数据管理', icon: 'el-icon-s-help' },
+    children: [
+      {
+        path: 'list',
+        name: '数据字典',
+        component: () => import('@/views/dict/list'),
+        meta: { title: '数据字典', icon: 'table' }
+      }
+    ]
+  },
+
+  {
+    path: '/hospSet',
+    component: Layout,
+    redirect: '/hospSet/list',
+    name: '医院设置管理',
+    meta: { title: '医院设置管理', icon: 'el-icon-s-help' },
+    children: [
+      {
+        path: 'list',
+        name: '医院设置列表',
+        component: () => import('@/views/hospset/list'),
+        meta: { title: '医院设置列表', icon: 'table' }
+      },
+      {
+        path: 'add',
+        name: '医院设置添加',
+        component: () => import('@/views/hospset/add'),
+        meta: { title: '医院设置添加', icon: 'tree' }
+      },
+    ]
+  },
+
+  {
     path: '/form',
     component: Layout,
     children: [
